@@ -15,6 +15,11 @@ import * as dot from "dotenv"
 app.use(cors());
 app.use(express.json());
 
+
+app.listen(port, () => {
+    console.log(`Listening on port ${port}!`);
+});
+
 dot.config()
 const uri = process.env.MONGOOSE_KEY;
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
@@ -25,7 +30,7 @@ mongoose.connect(uri, {
 });
 
 
-app.post("/createuser", async (req, res) => {
+app.post("/api/createuser", async (req, res) => {
     try {
         const { name, bal } = req.body
         const privateKey = generatePrivKey();
@@ -39,7 +44,7 @@ app.post("/createuser", async (req, res) => {
     }
 })
 
-app.get("/users", async (req, res) => {
+app.get("/api/users", async (req, res) => {
     try {
         const users = await Users.find();
         res.status(200).send(users);
@@ -48,7 +53,7 @@ app.get("/users", async (req, res) => {
     }
 });
 
-app.post("/verifysignature", (req, res) => {
+app.post("/api/verifysignature", (req, res) => {
     try {
         const { msg, privateKey, publicKey } = req.body;
         const hashMsg = hashMessage(msg)
@@ -64,7 +69,7 @@ app.post("/verifysignature", (req, res) => {
     }
 })
 
-app.post("/transaction", async (req, res) => {
+app.post("/api/transaction", async (req, res) => {
     const { from, to, amount } = req.body;
     const fromKey = hexToUint8Array(from)
     const toKey = hexToUint8Array(to)
@@ -93,6 +98,3 @@ app.get("/", (req, res) => {
     res.send("hello")
 })
 
-app.listen(port, () => {
-    console.log(`Listening on port ${port}!`);
-});
