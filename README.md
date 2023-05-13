@@ -50,6 +50,7 @@ Frontend Repository - https://github.com/gauthking/ECDSA-Node-Project
 ![image](https://github.com/gauthking/ECDSA-backend/assets/90638995/9b2809ce-46a9-4510-9bbd-38867d4b97c2)
 
  - Finally our verify function first recovers the `public key` using the `signature` and `hashed message` parameters and checks whether it is equal to the public key that we passed to the verify function as the third argument. IF it matches, then it returns TRUE else FALSE. 
- -  The API will send the public key back to our client if the verify function returns true and in the frontend, with that response, we will display it in our Modal component based on that. 
+ -  The API will send the public key back to our client if the verify function returns true and in the frontend, with that response, we display whether the transaction has INITIATED by the current user or not. 
+ -  **IN THE ABOVE STEP** is how in a distributed network, how nodes **VERIFY** whether a particular transaction was initiated by a **NODE** of the network.
 
 
