@@ -3,9 +3,9 @@ const app = express();
 import mongoose from 'mongoose';
 import cors from 'cors';
 const port = 5000;
-import { generatePrivKey, generatePublicKey } from "./generate-keys.mjs";
-import { Users } from './schema.js';
-import { hashMessage, hexToUint8Array, signMessage, verify } from "./helper.mjs";
+import { generatePrivKey, generatePublicKey } from "./scripts/generate-keys.mjs";
+import { Users } from './models/schema.js';
+import { hashMessage, hexToUint8Array, signMessage, verify } from "./scripts/helper.mjs";
 import { utf8ToBytes } from "ethereum-cryptography/utils.js"
 import { toHex } from "ethereum-cryptography/utils.js"
 import * as dot from "dotenv"

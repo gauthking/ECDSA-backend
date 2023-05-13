@@ -7,7 +7,7 @@ const userSchema = mongoose.Schema({
     balance: Number
 })
 
-const tranacSchema = mongoose.Schema({
+const transacSchema = mongoose.Schema({
     from: String,
     to: String,
     amount: Number
