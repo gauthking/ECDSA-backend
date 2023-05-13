@@ -6,6 +6,8 @@ Frontend Repository - https://github.com/gauthking/ECDSA-Node-Project
 
 **This project is built for the sub course category of the Alchemy University's Ethereum Developer Roadmap - ECDSA Node**
 
+This project demonstrates the idea of **Public-Key Cryptography** which involves the use of **Digital Signatures** triggering a variety of use cases. For one, a user can cryptographically **SIGN** a message using the ECDSA algorithm (in this project we make use of SECP256K1 library which follows the ECDSA's approach) and send it to other nodes of the network which can be used to verify the integrity of the sender who initiated the transaction, AND ALL without revealing the sender's private key!
+
 ***Below shown is the LANDING REGISTER PAGE of the Application***
 
 ![image](https://github.com/gauthking/ECDSA-backend/assets/90638995/ff9a9940-2c43-4a7a-84a0-fe78377fff3d)
