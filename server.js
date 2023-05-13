@@ -1,24 +1,16 @@
 import express from 'express';
-const app = express();
 import mongoose from 'mongoose';
 import cors from 'cors';
-const port = 5000;
 import { generatePrivKey, generatePublicKey } from "./scripts/generate-keys.mjs";
 import { Users } from './models/schema.js';
 import { hashMessage, hexToUint8Array, signMessage, verify } from "./scripts/helper.mjs";
-import { utf8ToBytes } from "ethereum-cryptography/utils.js"
 import { toHex } from "ethereum-cryptography/utils.js"
 import * as dot from "dotenv"
-
-
+const app = express();
+const port = 5000;
 
 app.use(cors());
 app.use(express.json());
-
-
-app.listen(port, () => {
-    console.log(`Listening on port ${port}!`);
-});
 
 dot.config()
 const uri = process.env.MONGOOSE_KEY;
@@ -98,3 +90,6 @@ app.get("/", (req, res) => {
     res.send("hello")
 })
 
+app.listen(port, () => {
+    console.log(`Listening on port ${port}!`);
+});
